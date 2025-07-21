@@ -37,7 +37,7 @@ jobs:
       - run: pacman -Ql mingw-w64-ucrt-x86_64-libxml2
         if: matrix.os == 'windows-latest'
       - name: Build (Windows only)
-        run: bundle exec rake compile -- --enable-system-libraries #--with-xml2-config=C:/msys64/ucrt64/bin/xml2-config
+        run: bundle exec rake compile -- --enable-system-libraries --with-xml2-config=C:/ucrt64/bin/xml2-config
         if: matrix.os == 'windows-latest'
       - name: Build (Others)
         run: bundle exec rake compile -- --enable-system-libraries
