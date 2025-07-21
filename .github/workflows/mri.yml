@@ -36,6 +36,6 @@ jobs:
       - run: pacman -Ql mingw-w64-ucrt-x86_64-libxml2
         if: matrix.os == 'windows-latest'
       - name: Build
-        run: bundle exec rake compile -- --with-xml2-include=/ucrt64/include/libxml2
+        run: bundle exec rake compile -- --with-xml2-config=/ucrt64/bin/xml2-config
       - name: Test
         run: bundle exec rake test
