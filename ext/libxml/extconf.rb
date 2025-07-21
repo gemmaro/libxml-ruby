@@ -32,7 +32,8 @@ found_header = find_header('libxml/xmlversion.h',
                            '/usr/local/include/libxml2',
                            '/usr/include/libxml2',
                            '/usr/local/include',
-                           '/usr/local/opt/libxml2/include/libxml2')
+                           '/usr/local/opt/libxml2/include/libxml2',
+                           '/ucrt64/include/libxml2')
 
 found_lib = find_library('xml2', 'xmlParseDoc',
                            '/opt/lib',
