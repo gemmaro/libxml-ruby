@@ -30,17 +30,10 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           apt-get: libxml2-dev
           # brew: libxml2
-          msys2: libxml2
           mingw: libxml2
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         timeout-minutes: 10
-      - run: pacman -Ql mingw-w64-ucrt-x86_64-libxml2
-        if: matrix.os == 'windows-latest'
-      - name: Build (Windows only)
-        run: bundle exec rake compile -- --enable-system-libraries --with-xml2-config=/ucrt64/bin/xml2-config
-        if: matrix.os == 'windows-latest'
-      - name: Build (Others)
-        run: bundle exec rake compile -- --enable-system-libraries
-        if: matrix.os != 'windows-latest'
+      - name: Build
+        run: bundle exec rake compile
       - name: Test
         run: bundle exec rake test
