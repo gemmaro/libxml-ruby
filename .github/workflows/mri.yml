@@ -38,6 +38,6 @@ jobs:
       - run: ls /
         if: matrix.os == 'windows-latest'
       - name: Build
-        run: bundle exec rake compile -- --with-xml2-config=/msys64/ucrt64/bin/xml2-config
+        run: bundle exec rake compile -- --with-xml2-config=xml2-config
       - name: Test
         run: bundle exec rake test
