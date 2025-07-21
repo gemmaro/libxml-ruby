@@ -34,6 +34,6 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         timeout-minutes: 10
       - name: Build
-        run: bundle exec rake compile
+        run: bundle exec rake compile -- --with-xml2-include=/ucrt64/include/libxml2
       - name: Test
         run: bundle exec rake test
