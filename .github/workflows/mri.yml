@@ -30,7 +30,7 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           apt-get: libxml2-dev
           # brew: libxml2
-          mingw: libxml2
+          msys2: libxml2
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         timeout-minutes: 10
       - run: pacman -Ql mingw-w64-ucrt-x86_64-libxml2
