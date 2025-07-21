@@ -25,7 +25,7 @@ else
   dir_config('xml2')
 end
 
-found_header = find_header('libxml/xmlversion.h')
+found_header = find_header('libxml/xmlversion.h', '/ucrt64/include/libxml2')
 
 found_lib = find_library('xml2', 'xmlParseDoc',
                            '/opt/lib',
