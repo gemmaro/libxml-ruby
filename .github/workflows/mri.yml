@@ -33,7 +33,11 @@ jobs:
           mingw: libxml2
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         timeout-minutes: 10
-      - name: Build
+      - name: Build (Windows only)
+        run: bundle exec rake compile -- --enable-system-libraries --with-xml2-config=C:/msys64/ucrt64/bin/xml2-config
+        if: matrix.os == 'windows-latest'
+      - name: Build (Others)
         run: bundle exec rake compile -- --enable-system-libraries
+        if: matrix.os != 'windows-latest'
       - name: Test
         run: bundle exec rake test
